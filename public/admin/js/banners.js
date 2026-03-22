@@ -44,6 +44,15 @@ loadBanners();
 async function addBanner(){
 
 const image = document.getElementById("image").files[0];
+if (!image) {
+  alert("Chọn ảnh");
+  return;
+}
+
+if (image.size > 2 * 1024 * 1024) {
+  alert("Ảnh phải nhỏ hơn 2MB");
+  return;
+}
 const title = document.getElementById("title").value;
 const link = document.getElementById("link").value;
 const order = document.getElementById("order").value;
@@ -58,7 +67,6 @@ formData.append("order", order);
 await fetch(API_URL,{
 method:"POST",
  headers: {
-    "Content-Type": "application/json",
     Authorization: `Bearer ${localStorage.getItem("adminToken")}`
   },
 body:formData
@@ -82,7 +90,7 @@ const order = prompt("New order");
 await fetch(`${API_URL}/${id}`,{
 method:"PUT",
 headers:{
-    "Authorization": `Bearer ${token}`,
+    Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
 "Content-Type":"application/json"
 },
 body:JSON.stringify({
