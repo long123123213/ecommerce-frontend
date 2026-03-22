@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Categories</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+<div id="slidebar-container"></div>
+<div class="content">
+  <h1>Categories</h1>
+
+  <h3>Thêm danh mục</h3>
+  <input type="text" id="categoryName" placeholder="Tên danh mục">
+  <button onclick="addCategory()">Thêm</button>
+
+  <hr>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tên danh mục</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="categoryTable"></tbody>
+  </table>
+</div>
+
+ <script>
+   
+ fetch('/admin/slidebar.html')
+  .then(res => res.text())
+  .then(html => {
+    // 1. Chèn sidebar vào trước
+    document.getElementById('slidebar-container').innerHTML = html;
+
+    // 2. Sau đó mới chạy code hiển thị email
+    const adminUser = JSON.parse(localStorage.getItem("adminUser"));
+    const adminInfoElem = document.getElementById("adminInfo");
+    
+    if (adminUser && adminInfoElem) {
+      adminInfoElem.innerHTML = "Xin chào: <b>" + adminUser.email + "</b>";
+    }
+  });
+</script>
+<script src="/admin/js/admin-auth.js"></script>
+<script src="/admin/js/categories.js"></script>
+</body>
+</html>

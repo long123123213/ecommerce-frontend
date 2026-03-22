@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop</title>
+
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/index.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+</head>
+
+<body>
+
+<div id="main">
+
+<div id="header-container"></div>
+
+<main id="content">
+
+<section class="products">
+
+<div class="products__header">
+
+<h2 class="products__title">SHOP</h2>
+
+<div class="shop-filter">
+
+<div class="filter-left">
+
+<div class="filter-item">
+<select id="filter-price">
+<option value="">Lọc giá</option>
+<option value="0-200">0 - 200k</option>
+<option value="200-400">200k - 400k</option>
+<option value="400-600">400k - 600k</option>
+<option value="600+">600k+</option>
+</select>
+</div>
+
+<div class="filter-item">
+<select id="filter-category">
+<option value="">Loại</option>
+</select>
+</div>
+
+<div class="filter-item">
+<select id="filter-size">
+<option value="">Kích thước</option>
+</select>
+</div>
+
+<div class="filter-item">
+<select id="filter-color">
+<option value="">Màu sắc</option>
+</select>
+</div>
+
+</div>
+
+<div class="filter-right">
+
+<select id="filter-sort">
+<option value="">Thứ tự</option>
+<option value="price_asc">Giá tăng</option>
+<option value="price_desc">Giá giảm</option>
+</select>
+<button id="reset-filters" class="reset-filter-btn">
+Xóa lọc
+</button>
+</div>
+
+</div>
+
+</div>
+
+<div class="products__list" id="products-list"></div>
+
+<div class="pagination" id="pagination"></div>
+
+</section>
+
+</main>
+
+<div id="footer-container"></div>
+
+</div>
+
+<script>
+
+fetch('/pages/header.html')
+.then(res=>res.text())
+.then(html=>{
+document.getElementById('header-container').innerHTML=html
+})
+
+fetch('/pages/footer.html')
+.then(res=>res.text())
+.then(html=>{
+document.getElementById('footer-container').innerHTML=html
+})
+
+</script>
+
+<script src="../js/header.js"></script>
+<script src="../js/shop.js"></script>
+
+</body>
+</html>

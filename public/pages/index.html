@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    </head>
+</head> 
+<body>
+    <div id="main">
+
+    <!-- Nơi header sẽ được load -->
+  <div id="header-container"></div>
+
+  <section id="slider">
+   <div class="swiper mySwiper">
+  <div class="swiper-wrapper" id="banner-list">
+    
+  </div>
+  
+  <!-- Nút -->
+  <div style ="color: #fff;" class="swiper-button-next"></div>
+  <div style ="color: #fff;" class="swiper-button-prev"></div>
+  
+  <!-- Dots -->
+  <div class="swiper-pagination"></div>
+</div>
+
+  </section>
+
+  <main id="content">
+    
+   <section class="products">
+    <div class="products__header">
+      <h2 class="products__title">Tất cả sản phẩm</h2>
+    </div>
+    
+      <div class="products__list" id="products-list">
+         
+      </div>
+
+      <div class="pagination" id="pagination"></div>
+      
+      
+   </section>
+
+  </main>
+
+  <div id="footer-container"></div>
+
+</div>
+  <script>
+    // JS fetch header và chèn vào DOM
+    fetch('/pages/header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('header-container').innerHTML = html;
+      });
+
+    fetch('/pages/footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+      });
+  </script>
+  <script src="../js/header.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="/js/chat-widget.js"></script>
+</body>
+</html>

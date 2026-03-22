@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Orders</title>
+
+<link rel="stylesheet" href="/admin/css/admin.css">
+<link rel="stylesheet" href="/admin/css/order.css">
+
+</head>
+
+<body>
+
+<div id="slidebar-container"></div>
+
+<div class="content">
+
+<h1>Quản lý đơn hàng</h1>
+
+<div class="order-tools">
+
+<input type="text" id="searchOrder" placeholder="Tìm mã đơn hoặc email">
+
+<select id="statusFilter">
+<option value="">Tất cả trạng thái</option>
+<option value="PENDING">PENDING</option>
+<option value="CONFIRMED">CONFIRMED</option>
+<option value="SHIPPING">SHIPPING</option>
+<option value="DONE">DONE</option>
+<option value="CANCEL">CANCEL</option>
+</select>
+
+</div>
+
+<div class="order-stats">
+
+<div class="stat">
+<span id="totalOrders">0</span>
+<p>Tổng đơn</p>
+</div>
+
+<div class="stat">
+<span id="pendingOrders">0</span>
+<p>Chờ xử lý</p>
+</div>
+
+<div class="stat">
+<span id="shippingOrders">0</span>
+<p>Đang giao</p>
+</div>
+
+<div class="stat">
+<span id="doneOrders">0</span>
+<p>Hoàn thành</p>
+</div>
+
+</div>
+
+<table class="order-table">
+
+<thead>
+<tr>
+<th>Mã đơn</th>
+<th>Khách hàng</th>
+<th>Ngày</th>
+<th>Tổng tiền</th>
+<th>Trạng thái</th>
+<th>Phương thức</th> 
+<th>Hành động</th>
+</tr>
+</thead>
+
+<tbody id="order-list"></tbody>
+
+</table>
+
+<div id="pagination"></div>
+
+</div>
+
+<script src="/admin/js/admin-auth.js"></script>
+<script src="/admin/js/order.js"></script>
+
+<script>
+
+fetch('/admin/slidebar.html')
+.then(res => res.text())
+.then(html => {
+
+document.getElementById('slidebar-container').innerHTML = html;
+
+const adminUser = JSON.parse(localStorage.getItem("adminUser"));
+const adminInfoElem = document.getElementById("adminInfo");
+
+if (adminUser && adminInfoElem) {
+adminInfoElem.innerHTML = "Xin chào: <b>" + adminUser.email + "</b>";
+}
+
+});
+
+</script>
+
+</body>
+</html>

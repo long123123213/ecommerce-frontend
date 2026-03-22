@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Detail</title>
+  
+  <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="/css/product-detail.css">
+</head>
+<body>
+
+<div id="main">
+
+  <div id="header-container"></div>
+
+  <div class="product-container">
+    
+    <!-- LEFT -->
+    <div class="gallery">
+      <img id="mainImage" class="main-image" />
+      <div id="thumbnails" class="thumbnails"></div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="info">
+      <h1 id="productName"></h1>
+      <h2 id="productPrice"></h2>
+
+      <div class="section">
+        <p class="label">SIZE</p>
+        <div id="sizes" class="size-list"></div>
+      </div>
+      
+      <div class="section">
+  <p class="label">COLOR</p>
+  <div id="colors" class="size-list"></div>
+</div>
+
+      <button id="addToCartBtn" class="add-cart">
+        ADD TO CART
+      </button>
+
+      <div id="productDescription" class="product-description"></div>
+    </div>
+
+  </div>
+<!-- ADD TO CART POPUP -->
+<div id="cartPopup" class="cart-popup hidden">
+  <div class="cart-popup-content">
+    
+    <div class="popup-header">
+      <span>✔ THÊM VÀO GIỎ THÀNH CÔNG</span>
+      <button onclick="closePopup()">✕</button>
+    </div>
+
+    <div class="popup-body">
+      <img id="popupImage" />
+      <div>
+        <h3 id="popupName"></h3>
+        <p id="popupVariant"></p>
+      </div>
+    </div>
+
+    <div class="popup-actions">
+      <button class="continue-btn" onclick="continueShopping()">
+        Tiếp tục mua sắm
+      </button>
+
+      <button class="view-cart-btn" onclick="goToCart()">
+        Xem giỏ hàng
+      </button>
+    </div>
+
+  </div>
+</div>
+  <div id="footer-container"></div>
+</div>
+  <script>
+    // JS fetch header và chèn vào DOM
+    fetch('/pages/header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('header-container').innerHTML = html;
+      });
+
+    fetch('/pages/footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+      });
+  </script>
+  <script src="../js/header.js"></script>
+<script src="/js/product-detail.js"></script>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="/js/chat-widget.js"></script>
+</body>
+</html>

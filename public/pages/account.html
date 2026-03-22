@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Account</title>
+
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/account.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div id="main">
+
+<div id="header-container"></div>
+
+<main class="account-page">
+
+<div class="account-sidebar">
+
+<div class="user-info">
+<img id="user-avatar" src="https://tuanluupiano.com/wp-content/uploads/2026/01/avatar-facebook-mac-dinh-13.jpg">
+<p id="sidebar-name">User</p>
+</div>
+
+<ul>
+<li class="active" data-tab="dashboard">Thông tin tài khoản</li>
+<li data-tab="orders">Đơn hàng</li>
+<li data-tab="address">Sổ địa chỉ</li>
+<li data-tab="password">Đổi mật khẩu</li>
+<li id="logout-btn">Thoát</li>
+</ul>
+
+</div>
+
+<div class="account-content">
+
+<!-- DASHBOARD -->
+
+<div class="tab active" id="dashboard">
+
+<h2>THÔNG TIN TÀI KHOẢN</h2>
+
+<p id="hello-user"></p>
+
+<div class="account-box">
+<p><b>Tên:</b> <span id="account-name"></span></p>
+<p><b>Email:</b> <span id="account-email"></span></p>
+<p><b>Điểm tích lũy:</b> <span id="loyalty"></span></p>
+</div>
+
+</div>
+
+
+<!-- ORDERS -->
+
+<div class="tab" id="orders">
+
+<h2>LỊCH SỬ ĐƠN HÀNG</h2>
+
+<table class="order-table">
+
+<thead>
+<tr>
+<th>Mã đơn</th>
+<th>Ngày</th>
+<th>Tổng tiền</th>
+<th>Trạng thái</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="order-list"></tbody>
+
+</table>
+
+</div>
+
+
+<!-- ADDRESS -->
+
+<div class="tab" id="address">
+
+<h2>SỔ ĐỊA CHỈ</h2>
+
+<div id="address-list" class="address-list"></div>
+
+<button class="btn" id="add-address-btn">
+<i class="fa fa-plus"></i> Thêm địa chỉ
+</button>
+
+</div>
+
+
+<!-- ADDRESS MODAL -->
+
+<div id="address-modal" class="modal">
+
+<div class="modal-content">
+
+<h3 id="modal-title">Thêm địa chỉ</h3>
+
+<input id="receiverName" placeholder="Tên người nhận">
+<input id="phone" placeholder="Số điện thoại">
+<input id="addressLine" placeholder="Địa chỉ">
+<input id="ward" placeholder="Phường/Xã">
+<input id="district" placeholder="Quận/Huyện">
+<input id="city" placeholder="Tỉnh/Thành">
+
+<div class="modal-actions">
+<button id="save-address" class="btn">Lưu</button>
+<button id="cancel-address" class="btn-outline">Hủy</button>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PASSWORD -->
+
+<div class="tab" id="password">
+
+<h2>ĐỔI MẬT KHẨU</h2>
+
+<form autocomplete="off">
+
+<input type="password" placeholder="Mật khẩu cũ">
+<input type="password" placeholder="Mật khẩu mới">
+<input type="password" placeholder="Xác nhận mật khẩu">
+
+<button class="btn">Cập nhật</button>
+
+</form>
+
+</div>
+
+</div>
+
+</main>
+
+<div id="footer-container"></div>
+
+</div>
+
+<script>
+
+fetch('/pages/header.html')
+.then(res => res.text())
+.then(html => {
+document.getElementById('header-container').innerHTML = html;
+});
+
+fetch('/pages/footer.html')
+.then(res => res.text())
+.then(html => {
+document.getElementById('footer-container').innerHTML = html;
+});
+
+</script>
+
+<script src="../js/header.js"></script>
+<script src="../js/account.js"></script>
+<script src="../js/account-address.js"></script>
+<script src="../js/account-orders.js"></script>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="/js/chat-widget.js"></script>
+</body>
+</html>

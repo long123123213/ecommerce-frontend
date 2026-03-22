@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Products</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+</head>
+<body>
+
+<div id="slidebar-container"></div>
+
+<div class="content">
+
+  <h1>Products</h1>
+
+  <!-- SEARCH -->
+  <input type="text" id="searchInput" placeholder="Search product...">
+  <button onclick="loadProducts()">Search</button>
+
+  <h3>Thêm sản phẩm</h3>
+
+  <input type="text" id="productName" placeholder="Tên sản phẩm">
+
+  <textarea id="description"></textarea>
+
+  <select id="categorySelect"></select>
+  <h3>Tags</h3>
+
+<label>
+<input type="checkbox" class="tag-checkbox" value="PCS">
+PCS
+</label>
+
+<label>
+<input type="checkbox" class="tag-checkbox" value="NEW">
+NEW
+</label>
+
+<label>
+<input type="checkbox" class="tag-checkbox" value="COLLAB">
+COLLAB
+</label>
+
+<label>
+<input type="checkbox" class="tag-checkbox" value="SALE">
+SALE
+</label>
+
+<label>
+<input type="checkbox" class="tag-checkbox" value="NEW ARRIVAL">
+NEW ARRIVAL
+</label>
+
+<br><br>
+
+<input
+type="text"
+id="customTags"
+placeholder="Custom tags: RESTOCK, PREORDER"
+/>
+
+  <input type="file" id="productImages" multiple accept="image/*">
+  <small>Chọn từ 1 - 5 ảnh</small>
+
+  <button onclick="addProduct()">Save</button>
+
+  <hr>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Tên sản phẩm</th>
+        <th>Mô tả</th>
+        <th>Giá thấp nhất</th>
+        <th>Tổng stock</th>
+        <th>Tags</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody id="productTable"></tbody>
+  </table>
+
+  <!-- PAGINATION -->
+  <div style="margin-top:20px;">
+    <button onclick="prevPage()">Prev</button>
+    <span id="pageInfo"></span>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+</div>
+<script>
+   
+ fetch('/admin/slidebar.html')
+  .then(res => res.text())
+  .then(html => {
+    // 1. Chèn sidebar vào trước
+    document.getElementById('slidebar-container').innerHTML = html;
+
+    // 2. Sau đó mới chạy code hiển thị email
+    const adminUser = JSON.parse(localStorage.getItem("adminUser"));
+    const adminInfoElem = document.getElementById("adminInfo");
+    
+    if (adminUser && adminInfoElem) {
+      adminInfoElem.innerHTML = "Xin chào: <b>" + adminUser.email + "</b>";
+    }
+  });
+</script>
+<script>
+let editor;
+
+ClassicEditor
+  .create(document.querySelector('#description'))
+  .then(newEditor => {
+    editor = newEditor;
+  });
+</script>
+
+<script src="/admin/js/admin-auth.js"></script>
+<script src="/admin/js/products.js"></script>
+
+</body>
+</html>

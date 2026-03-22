@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Giỏ hàng</title>
+  <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/login.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+</head>
+<body>
+  <div id="main">
+<div id="header-container"></div>
+<div class="cart-container">
+
+  <h2>GIỎ HÀNG</h2>
+
+  <div class="cart-table">
+
+    <div class="cart-header">
+      <div>Sản phẩm</div>
+      <div>Số lượng</div>
+      <div>Tổng tiền</div>
+      <div>Xóa</div>
+    </div>
+
+    <div class="cart-items"></div>
+
+  </div>
+
+  <div class="cart-summary">
+    <h3>Tổng cộng:</h3>
+    <h2 id="cartTotal">0 đ</h2>
+    <button class="checkout-btn" onclick="goCheckout()">Thanh toán</button>
+  </div>
+
+</div>
+<div id="footer-container"></div>
+</div>
+
+ <script>
+    // JS fetch header và chèn vào DOM
+    fetch('/pages/header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('header-container').innerHTML = html;
+      });
+
+     fetch('/pages/footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+      });
+
+  </script>
+  <script src="../js/header.js"></script>
+<script src="../js/cart.js"></script>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="/js/chat-widget.js"></script>
+</body>
+</html>

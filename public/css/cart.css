@@ -1,0 +1,108 @@
+.cart-container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+/* ===== TABLE ===== */
+
+.cart-table {
+  border: 1px solid var(--color-border);
+}
+
+.cart-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 80px;
+  background: var(--color-bg-light);
+  padding: 15px 20px;
+  font-weight: bold;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cart-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 80px;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ===== PRODUCT ===== */
+
+.cart-product {
+  display: flex;
+  gap: 15px;
+}
+
+.cart-product img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+}
+
+/* ===== QUANTITY ===== */
+
+.cart-quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart-quantity button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+  background: var(--color-secondary);
+  transition: 0.2s;
+}
+
+.cart-quantity button:hover {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+/* ===== TOTAL ===== */
+
+.cart-total {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ===== REMOVE ===== */
+
+.cart-remove {
+  text-align: center;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: 0.2s;
+}
+
+.cart-remove:hover {
+  color: var(--color-primary);
+}
+
+/* ===== SUMMARY ===== */
+
+.cart-summary {
+  margin-top: 30px;
+  text-align: right;
+}
+
+/* ===== CHECKOUT ===== */
+
+.checkout-btn {
+  margin-top: 15px;
+  padding: 12px 30px;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.checkout-btn:hover {
+  opacity: 0.85;
+}

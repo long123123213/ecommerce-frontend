@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/login.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="main">
+        <div id="header-container"></div>
+    <main id="content">
+       <section class="login">
+           <h2 class="login__title">Đăng nhập</h2>
+           <form action="" class="login__form" >
+            <div class="login__field">
+                <i class="login__icon fas fa-envelope"></i>
+                <input class="login__input" type="email" id="login-email" placeholder="Email của bạn" name="login_email"  readonly
+      onfocus="this.removeAttribute('readonly')"required>
+            </div>
+            <div class="login__field">
+                <i class="login__icon fas fa-lock"></i>
+                 <input class="login__input" type="password" id="login-password" placeholder="Nhập mật khẩu" name="login_password" readonly
+      onfocus="this.removeAttribute('readonly')" required>
+            </div>
+            <button type="submit" class="login__btn">Đăng nhập</button>
+            <div class="login__footer">
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+           </form>
+        </section>
+
+         <section class="register">
+           <h2 class="register__title">Đăng ký thành viên mới</h2>
+           <form action="" class="register__form" >
+            <div class="register__field">
+                <i class="register__icon fas fa-user"></i>
+            <input class="register__input" type="text" id="register-name" name="register_name" placeholder="Họ và Tên"  readonly
+      onfocus="this.removeAttribute('readonly')" required>
+           </div>
+           <div class="register__field">
+            <i class="register__icon fas fa-envelope"></i>
+             <input class="register__input" type="email" id="register-email" name="register_email" placeholder="Email"  readonly
+      onfocus="this.removeAttribute('readonly')" required>
+           </div>
+            <div class="register__field">
+            <i class="register__icon fas fa-phone"></i>
+             <input class="register__input" type="phone" id="register-phone" name="register_phone" placeholder="Số điện thoại"  readonly
+      onfocus="this.removeAttribute('readonly')" required>
+           </div>
+           <div class="register__field">
+            <i class="register__icon fas fa-lock"></i>
+             <input class="register__input" type="password" id="register-password" name="register_password" placeholder="Mật khẩu"  readonly
+      onfocus="this.removeAttribute('readonly')" required>
+           </div>
+           <button type="submit" class="register__btn">Đăng ký</button>
+           </form>
+        </section>
+    </main>
+    <div id="footer-container"></div>
+    </div>
+    
+    
+    <script>
+    // JS fetch header và chèn vào DOM
+    fetch('/pages/header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('header-container').innerHTML = html;
+      });
+
+     fetch('/pages/footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+      });
+
+  </script>
+  <script src="js/header.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>
