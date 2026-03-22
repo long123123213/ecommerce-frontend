@@ -155,6 +155,9 @@ JSON.stringify(customTags)
 );
   const res = await fetch(url, {
     method: method,
+    headers: {
+    Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+  },
     body: formData
   });
 
@@ -225,7 +228,10 @@ async function deleteProduct(id) {
   if (!confirm("Bạn chắc chắn muốn xóa?")) return;
 
   await fetch(`${API_URL}/products/${id}`, {
-    method: "DELETE"
+    method: "DELETE",
+    headers: {
+    Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+  }
   });
 
   loadProducts();

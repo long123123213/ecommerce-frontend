@@ -43,9 +43,10 @@ async function addVariant() {
 
     await fetch(`${API_URL}/variants/${editingId}`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json"
-      },
+     headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+  },
       body: JSON.stringify({
         size,
         color,
@@ -61,8 +62,9 @@ async function addVariant() {
     await fetch(`${API_URL}/variants`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
-      },
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+  },
       body: JSON.stringify({
         idProduct: productId,
         size,
@@ -93,7 +95,10 @@ async function deleteVariant(id) {
   if (!confirm("Bạn có chắc muốn xóa variant?")) return;
 
   await fetch(`${API_URL}/variants/${id}`, {
-    method: "DELETE"
+    method: "DELETE",
+    headers: {
+    Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+  }
   });
 
   loadVariants();

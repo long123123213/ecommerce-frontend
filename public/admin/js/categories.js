@@ -46,9 +46,10 @@ async function addCategory() {
   if (editingId) {
     await fetch(`${API_URL}/categories/${editingId}`, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
+       headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+  },
       body: JSON.stringify({
         nameCategory: name
       })
@@ -62,8 +63,9 @@ async function addCategory() {
     await fetch(`${API_URL}/categories`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
-      },
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+  },
       body: JSON.stringify({
         nameCategory: name
       })
@@ -86,7 +88,9 @@ async function deleteCategory(id) {
   if (!confirm("Bạn chắc chắn muốn xóa?")) return;
 
   await fetch(`${API_URL}/categories/${id}`, {
-    method: "DELETE"
+    method: "DELETE" ,headers:{ 
+      Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+    },
   });
 
   loadCategories();

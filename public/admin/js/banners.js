@@ -57,6 +57,10 @@ formData.append("order", order);
 
 await fetch(API_URL,{
 method:"POST",
+ headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+  },
 body:formData
 });
 
@@ -78,6 +82,7 @@ const order = prompt("New order");
 await fetch(`${API_URL}/${id}`,{
 method:"PUT",
 headers:{
+    "Authorization": `Bearer ${token}`,
 "Content-Type":"application/json"
 },
 body:JSON.stringify({
@@ -97,7 +102,9 @@ async function deleteBanner(id){
 if(!confirm("Delete banner?")) return;
 
 await fetch(`${API_URL}/${id}`,{
-method:"DELETE"
+method:"DELETE",headers:{ 
+    Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+},
 });
 
 loadBanners();
