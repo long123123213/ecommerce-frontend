@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:5000/api";
+const BASE = "https://ecommerce-backend-w960.onrender.com/api";
+const API_URL = BASE;
 
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");

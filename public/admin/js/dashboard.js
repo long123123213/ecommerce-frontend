@@ -1,5 +1,5 @@
 async function loadDashboard() {
-  const res = await fetch("http://localhost:5000/api/admin/dashboard");
+  const res = await fetch("https://ecommerce-backend-w960.onrender.com/api/admin/dashboard");
   const data = await res.json();
 
   document.getElementById("totalProducts").innerText = data.totalProducts;
@@ -35,7 +35,7 @@ async function loadRevenueChart() {
   const year = document.getElementById("year")?.value;
 
   const res = await fetch(
-    `http://localhost:5000/api/admin/revenue-by-date?month=${month}&year=${year}`
+    `https://ecommerce-backend-w960.onrender.com/api/admin/revenue-by-date?month=${month}&year=${year}`
   );
 
   const data = await res.json();
@@ -58,7 +58,7 @@ async function loadRecentOrders() {
   try {
     const token = localStorage.getItem("adminToken");
 
-    const res = await fetch("http://localhost:5000/api/orders", {
+    const res = await fetch("https://ecommerce-backend-w960.onrender.com/api/orders", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -96,7 +96,7 @@ async function loadRecentOrders() {
 
 // ===== TOP PRODUCTS =====
 async function loadTopProducts() {
-  const res = await fetch("http://localhost:5000/api/admin/top-products");
+  const res = await fetch("https://ecommerce-backend-w960.onrender.com/api/admin/top-products");
   const data = await res.json();
 
   new Chart(document.getElementById("topProductsChart"), {
@@ -113,7 +113,7 @@ async function loadTopProducts() {
 
 // ===== TOP USERS =====
 async function loadTopUsers() {
-  const res = await fetch("http://localhost:5000/api/admin/top-users");
+  const res = await fetch("https://ecommerce-backend-w960.onrender.com/api/admin/top-users");
   const data = await res.json();
 
   new Chart(document.getElementById("topUsersChart"), {

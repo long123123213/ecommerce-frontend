@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  const API_URL = "http://localhost:5000/api";
+  const BASE = "https://ecommerce-backend-w960.onrender.com/api";
+const API_URL = BASE;
   const list = document.getElementById("order-list");
 
   if (!list) return;

@@ -1,4 +1,4 @@
-const socket = io("http://localhost:5000");
+const socket = io("https://ecommerce-backend-w960.onrender.com");
 
 let currentUser = null;
 
@@ -18,7 +18,7 @@ async function loadUsers() {
 
   try {
 
-    const res = await fetch("http://localhost:5000/api/chat/admin/conversations", {
+    const res = await fetch("https://ecommerce-backend-w960.onrender.com/api/chat/admin/conversations", {
       headers: {
         Authorization: "Bearer " + adminToken
       }
@@ -72,7 +72,7 @@ async function selectUser(user) {
   try {
 
     const res = await fetch(
-      `http://localhost:5000/api/chat/messages/${user.conversationId}`,
+      `https://ecommerce-backend-w960.onrender.com/api/chat/messages/${user.conversationId}`,
       {
         headers: {
           Authorization: "Bearer " + adminToken

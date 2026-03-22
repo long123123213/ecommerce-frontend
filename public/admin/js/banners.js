@@ -1,6 +1,5 @@
-const API_URL = "http://localhost:5000/api/banners";
-
-
+const BASE = "https://ecommerce-backend-w960.onrender.com/api";
+const API_URL = `${BASE}/banners`;
 // LOAD BANNERS
 async function loadBanners(){
 

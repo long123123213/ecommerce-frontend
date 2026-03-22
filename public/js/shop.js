@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:5000/api/products";
+const BASE = "https://ecommerce-backend-w960.onrender.com/api";
+const API_URL = `${BASE}/products`;
 const ITEMS_PER_PAGE = 40;
 
 let currentPage = 1;

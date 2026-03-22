@@ -1,6 +1,8 @@
+const BASE = "https://ecommerce-backend-w960.onrender.com/api";
+const API_URL = `${BASE}/chat`;
 (function () {
 
-const socket = io("http://localhost:5000");
+const socket = io("https://ecommerce-backend-w960.onrender.com");
 
 let conversationId = null;
 
@@ -225,8 +227,8 @@ async function initChat() {
 if (!token) return;
 
 try {
-
-const res = await fetch("http://localhost:5000/api/chat/conversation", {
+`${API_URL}/conversation`
+const res = await fetch(`${API_URL}/conversation`, {
 method: "POST",
 headers: {
 Authorization: "Bearer " + token
@@ -259,8 +261,7 @@ async function loadMessages() {
 if (!conversationId) return;
 
 try {
-
-const res = await fetch(`http://localhost:5000/api/chat/messages/${conversationId}`, {
+const res = await fetch(`${API_URL}/messages/${conversationId}`, {
 headers:{
 Authorization:"Bearer "+token
 }
