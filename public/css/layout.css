@@ -51,7 +51,7 @@ body{
   padding-bottom: 4px;
 }
 
-/* underline hover giống DirtyCoins */
+/* underline hover  */
 .header__menu-item a::after {
   content: "";
   position: absolute;
