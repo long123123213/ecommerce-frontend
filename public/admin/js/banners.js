@@ -49,8 +49,8 @@ if (!image) {
   return;
 }
 
-if (image.size > 2 * 1024 * 1024) {
-  alert("Ảnh phải nhỏ hơn 2MB");
+if (image.size > 1 * 1024 * 1024) {
+  alert("Ảnh phải nhỏ hơn 1MB ");
   return;
 }
 const title = document.getElementById("title").value;

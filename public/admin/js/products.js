@@ -109,7 +109,12 @@ async function addProduct() {
   const categoryId = document.getElementById("categorySelect").value;
 
   const files = document.getElementById("productImages").files;
-
+for (let file of files) {
+  if (file.size > 1 * 1024 * 1024) {
+    alert("Mỗi ảnh phải < 1MB");
+    return;
+  }
+}
   const formData = new FormData();
 
   formData.append("nameProduct", name);
