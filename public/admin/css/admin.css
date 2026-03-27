@@ -105,3 +105,13 @@ table th, table td {
 .back-btn:hover {
   background: #666;
 }
+
+table {
+  table-layout: fixed;
+}
+
+table td:nth-child(3) {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
